@@ -3,9 +3,11 @@ description: "Ph.D. student at Georgia Tech in Materials Science & Engineering"
 url: "https://sabbkarr.github.io"   
 theme: "jekyll-theme-minimal"
 baseurl: ""
+remote_theme: poole/hyde
 plugins:
+  - jekyll-remote-theme
   - jekyll-feed
-
+  
 nav:
   - title: "About"
     url: /about/
