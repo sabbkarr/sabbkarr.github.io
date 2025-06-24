@@ -1,7 +1,7 @@
 title: "Saba Karimi"
 description: "Ph.D. student at Georgia Tech in Materials Science & Engineering"
 url: "https://sabbkarr.github.io"   
-theme: "minimal"
+theme: "jekyll-theme-minimal"
 baseurl: ""
 plugins:
   - jekyll-feed
@@ -11,8 +11,6 @@ nav:
     url: /about/
   - title: "Research"
     url: /research/
-  - title: "CV"
-    url: /cv/
   - title: "Projects"
     url: /projects/
   - title: "Contact"
