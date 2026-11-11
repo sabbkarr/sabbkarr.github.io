@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects · [[NAME]]</title>
+  <meta name="description" content="[[META_DESCRIPTION]]">
+  <!-- Third-party resources: none. No analytics or tracking. -->
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body data-root="">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-title" href="index.html">[[NAME]]<small>[[SHORT_TITLE]] · [[AFFILIATION]]</small></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav id="site-nav" class="site-nav" aria-label="Main">
+        <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="bio.html">Bio</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="projects.html" aria-current="page">Projects</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="blog/index.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap" tabindex="-1">
+    <h1>Projects</h1>
+    <!-- Entries come from data/projects.json. Ongoing projects (no end date) are listed first. -->
+    <p class="page-intro">[[PROJECTS_INTRO — optional one sentence; delete this line if not needed.]]</p>
+    <div data-render="projects"></div>
+    <noscript><p class="notice">This list is loaded with JavaScript. Please enable it, or see the raw data in <a href="data/projects.json">data/projects.json</a>.</p></noscript>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>&copy; <span data-year>2026</span> [[NAME]]</span>
+      <span><a href="contact.html">Contact</a></span>
+    </div>
+  </footer>
+  <script src="assets/js/site.js"></script>
+</body>
+</html>

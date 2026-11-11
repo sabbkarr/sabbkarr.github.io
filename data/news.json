@@ -1,0 +1,8 @@
+{
+  "_comment": "News items for news.html and the 3 most recent on the home page. Order does not matter; they are sorted newest first. Each entry: date (YYYY-MM-DD or YYYY-MM), headline (one line), url (optional, leave empty for none).",
+  "news": [
+    { "date": "2026-11-01", "headline": "[[NEWS_HEADLINE — e.g. Launched this website.]]", "url": "" },
+    { "date": "2026-09-15", "headline": "[[NEWS_HEADLINE]]", "url": "[[OPTIONAL_LINK]]" },
+    { "date": "2026-06",    "headline": "[[NEWS_HEADLINE]]", "url": "" }
+  ]
+}

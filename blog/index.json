@@ -1,0 +1,4 @@
+{
+  "_comment": "List the slug (Markdown file name without .md) of every published post in blog/content/. Order does not matter; posts are sorted by the date in their front matter. Each slug also needs a page at blog/posts/<slug>.html (copy _template.html and change data-slug).",
+  "posts": ["hello-world"]
+}

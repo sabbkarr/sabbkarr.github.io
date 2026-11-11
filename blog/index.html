@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blog · [[NAME]]</title>
+  <meta name="description" content="[[META_DESCRIPTION]]">
+  <!-- Third-party resources: none. No analytics or tracking. -->
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body data-root="../">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-title" href="../index.html">[[NAME]]<small>[[SHORT_TITLE]] · [[AFFILIATION]]</small></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav id="site-nav" class="site-nav" aria-label="Main">
+        <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../research.html">Research</a></li>
+        <li><a href="../bio.html">Bio</a></li>
+        <li><a href="../news.html">News</a></li>
+        <li><a href="../projects.html">Projects</a></li>
+        <li><a href="../publications.html">Publications</a></li>
+        <li><a href="../blog/index.html" aria-current="page">Blog</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap" tabindex="-1">
+    <h1>Blog</h1>
+    <p class="page-intro">[[BLOG_INTRO — optional one sentence about what you write here.]]</p>
+    <div class="filters" role="group" aria-label="Filter by tag">
+      <div class="chip-group" id="tag-filter"></div>
+    </div>
+    <p class="result-count" id="post-count" aria-live="polite"></p>
+    <div data-render="blog-index"></div>
+    <noscript><p class="notice">The post list is loaded with JavaScript. Please enable it to browse posts.</p></noscript>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>&copy; <span data-year>2026</span> [[NAME]]</span>
+      <span><a href="../contact.html">Contact</a></span>
+    </div>
+  </footer>
+  <script src="../assets/js/site.js"></script>
+</body>
+</html>

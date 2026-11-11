@@ -1,0 +1,23 @@
+{
+  "_comment": "Research directions shown on research.html, in the order listed. Each entry: name (short label), description (2-4 sentences), keywords (optional list), links (optional list of {label, url}). Replace the [[...]] placeholders.",
+  "directions": [
+    {
+      "name": "[[DIRECTION_1_NAME]]",
+      "description": "[[DIRECTION_1_DESCRIPTION — 2–4 sentences: the question, why it matters, and how you approach it.]]",
+      "keywords": ["[[KEYWORD]]", "[[KEYWORD]]"],
+      "links": []
+    },
+    {
+      "name": "[[DIRECTION_2_NAME]]",
+      "description": "[[DIRECTION_2_DESCRIPTION]]",
+      "keywords": ["[[KEYWORD]]"],
+      "links": []
+    },
+    {
+      "name": "[[DIRECTION_3_NAME]]",
+      "description": "[[DIRECTION_3_DESCRIPTION]]",
+      "keywords": [],
+      "links": []
+    }
+  ]
+}

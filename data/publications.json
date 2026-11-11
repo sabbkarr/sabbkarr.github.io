@@ -1,0 +1,33 @@
+{
+  "_comment": "Publications for publications.html. Regenerate from Google Scholar with tools/scholar_to_json.py (see README) or edit by hand. highlight_author: your name exactly as it appears in author lists (bolded). Each entry: title, authors (list), venue, year, type (conference | journal | workshop | preprint | thesis | other — drives the type filter), note (optional, e.g. 'Oral'), links (list of {label, url}).",
+  "highlight_author": "[[NAME_AS_IN_AUTHOR_LISTS]]",
+  "publications": [
+    {
+      "title": "[[PAPER_TITLE]]",
+      "authors": ["[[NAME_AS_IN_AUTHOR_LISTS]]", "[[COAUTHOR]]", "[[COAUTHOR]]"],
+      "venue": "[[CONFERENCE_NAME]]",
+      "year": 2026,
+      "type": "conference",
+      "note": "",
+      "links": [ { "label": "paper", "url": "[[PAPER_URL]]" }, { "label": "code", "url": "[[CODE_URL]]" } ]
+    },
+    {
+      "title": "[[PAPER_TITLE]]",
+      "authors": ["[[COAUTHOR]]", "[[NAME_AS_IN_AUTHOR_LISTS]]"],
+      "venue": "arXiv preprint",
+      "year": 2025,
+      "type": "preprint",
+      "note": "Under review",
+      "links": [ { "label": "arXiv", "url": "[[ARXIV_URL]]" } ]
+    },
+    {
+      "title": "[[PAPER_TITLE]]",
+      "authors": ["[[NAME_AS_IN_AUTHOR_LISTS]]", "[[COAUTHOR]]"],
+      "venue": "[[WORKSHOP_NAME]]",
+      "year": 2025,
+      "type": "workshop",
+      "note": "",
+      "links": []
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "_comment": "Projects for projects.html. Each entry: title, start and end (YYYY or YYYY-MM; leave end empty for ongoing), description (2-3 sentences), methods (list of technologies or methods), links (list of {label, url}; use labels like code, paper, demo). Links left as [[...]] placeholders or empty are hidden.",
+  "projects": [
+    {
+      "title": "[[PROJECT_1_TITLE]]",
+      "start": "2026-01",
+      "end": "",
+      "description": "[[PROJECT_1_DESCRIPTION — what problem, what you built or found, and the outcome.]]",
+      "methods": ["[[METHOD_OR_TOOL]]", "[[METHOD_OR_TOOL]]"],
+      "links": [
+        { "label": "code", "url": "[[REPO_URL]]" },
+        { "label": "paper", "url": "[[PAPER_URL]]" },
+        { "label": "demo", "url": "[[DEMO_URL]]" }
+      ]
+    },
+    {
+      "title": "[[PROJECT_2_TITLE]]",
+      "start": "2025-03",
+      "end": "2025-12",
+      "description": "[[PROJECT_2_DESCRIPTION]]",
+      "methods": ["[[METHOD_OR_TOOL]]"],
+      "links": [ { "label": "code", "url": "[[REPO_URL]]" } ]
+    }
+  ]
+}
