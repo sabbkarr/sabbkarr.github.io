@@ -1,38 +1,62 @@
 {
   "_comment": "Research directions. On the home page, each direction's 'short' label becomes a topic tab and its 'summary' is shown under the tabs; research.html lists every direction with its full 'description' (2-4 sentences), 'keywords' and optional 'links' [{label, url}]. 'interests' is the comma-separated 'Research interests' line on the home page. Replace the [[...]] placeholders.",
   "interests": [
-    "[[INTEREST_1]]",
-    "[[INTEREST_2]]",
-    "[[INTEREST_3]]"
+    "agentic AI",
+    "visual reasoning",
+    "uncertainty quantification",
+    "foundation segmentation models",
+    "scientific imaging"
   ],
   "directions": [
     {
-      "name": "[[DIRECTION_1_NAME]]",
-      "short": "[[DIRECTION_1_SHORT_LABEL]]",
-      "summary": "[[DIRECTION_1_ONE_SENTENCE]]",
-      "description": "[[DIRECTION_1_DESCRIPTION — 2–4 sentences: the question, why it matters, and how you approach it.]]",
+      "name": "Multi-hypothesis visual reasoning",
+      "short": "Visual abductive reasoning",
+      "summary": "Agents that keep several interpretations of an ambiguous image alive and reason over them, instead of committing to one answer.",
+      "description": "Scientific images often support more than one reading. I build probabilistic, agentic frameworks that factorize spatial uncertainty into graph-derived ambiguity blocks, propagate it through segmentation and measurement, and keep multiple hypotheses until the evidence separates them.",
       "keywords": [
-        "[[KEYWORD]]",
-        "[[KEYWORD]]"
+        "agentic AI",
+        "abductive reasoning",
+        "uncertainty propagation",
+        "SAM-family models"
       ],
       "links": []
     },
     {
-      "name": "[[DIRECTION_2_NAME]]",
-      "short": "[[DIRECTION_2_SHORT_LABEL]]",
-      "summary": "[[DIRECTION_2_ONE_SENTENCE]]",
-      "description": "[[DIRECTION_2_DESCRIPTION]]",
+      "name": "Prompt-response landscapes of foundation models",
+      "short": "Promptable segmentation",
+      "summary": "Mapping how a promptable segmentation model's outputs change with the prompt, and how likely each distinct answer is.",
+      "description": "A single promptable segmentation model can give very different masks for nearby prompts. I map these prompt-response basins: designing sampling strategies that find the distinct outputs a model can produce and estimate their probability mass under a limited inference budget.",
       "keywords": [
-        "[[KEYWORD]]"
+        "foundation segmentation models",
+        "sampling",
+        "uncertainty quantification"
       ],
       "links": []
     },
     {
-      "name": "[[DIRECTION_3_NAME]]",
-      "short": "[[DIRECTION_3_SHORT_LABEL]]",
-      "summary": "[[DIRECTION_3_ONE_SENTENCE]]",
-      "description": "[[DIRECTION_3_DESCRIPTION]]",
-      "keywords": [],
+      "name": "Diversity of reasoning in LLMs",
+      "short": "Reasoning diversity",
+      "summary": "Measuring how differently people and LLMs search for solutions on abstract visual reasoning tasks.",
+      "description": "On ARC-style visual reasoning tasks, humans propose a wide range of candidate rules. Using a new semantic similarity metric and manifold analysis of solution trajectories, I compare that diversity with LLMs and find roughly 2× lower semantic diversity in LLaMA-family models, pointing to limits in adaptive conceptual search.",
+      "keywords": [
+        "LLMs",
+        "ARC",
+        "compositional reasoning",
+        "evaluation"
+      ],
+      "links": []
+    },
+    {
+      "name": "AI for scientific imaging",
+      "short": "Scientific imaging",
+      "summary": "Reliable, reproducible image analysis for microscopy and robotics, where errors carry real costs.",
+      "description": "I apply these ideas to real imaging problems: open-source tooling for atomic force microscopy that made cellulose nanocrystal measurement faster and more reproducible across labs, and perception for agricultural robots that pick deformable objects.",
+      "keywords": [
+        "microscopy",
+        "AFM",
+        "robotics",
+        "reproducibility"
+      ],
       "links": []
     }
   ]

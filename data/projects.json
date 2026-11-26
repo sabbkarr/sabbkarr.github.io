@@ -2,24 +2,69 @@
   "_comment": "Projects for projects.html. Each entry: title, start and end (YYYY or YYYY-MM; leave end empty for ongoing), description (2-3 sentences), methods (list of technologies or methods), links (list of {label, url}; use labels like code, paper, demo). Links left as [[...]] placeholders or empty are hidden.",
   "projects": [
     {
-      "title": "[[PROJECT_1_TITLE]]",
-      "start": "2026-01",
+      "title": "Multi-Hypothesis Visual Abductive Reasoning: An Agentic Approach",
+      "start": "2025-05",
       "end": "",
-      "description": "[[PROJECT_1_DESCRIPTION — what problem, what you built or found, and the outcome.]]",
-      "methods": ["[[METHOD_OR_TOOL]]", "[[METHOD_OR_TOOL]]"],
-      "links": [
-        { "label": "code", "url": "[[REPO_URL]]" },
-        { "label": "paper", "url": "[[PAPER_URL]]" },
-        { "label": "demo", "url": "[[DEMO_URL]]" }
-      ]
+      "description": "A probabilistic visual-reasoning framework that uses graph-derived ambiguity blocks to factorize spatial uncertainty and support multi-hypothesis interpretation of complex scientific images. An agentic pipeline ties together SAM-family segmentation, adaptive prompting, uncertainty propagation and downstream quantitative analysis across imaging conditions.",
+      "methods": [
+        "Agentic workflows",
+        "SAM-family models",
+        "Adaptive prompting",
+        "Uncertainty propagation"
+      ],
+      "links": []
     },
     {
-      "title": "[[PROJECT_2_TITLE]]",
-      "start": "2025-03",
-      "end": "2025-12",
-      "description": "[[PROJECT_2_DESCRIPTION]]",
-      "methods": ["[[METHOD_OR_TOOL]]"],
-      "links": [ { "label": "code", "url": "[[REPO_URL]]" } ]
+      "title": "Mapping the Prompt-Response Landscape of Foundation Segmentation Models",
+      "start": "2026-09",
+      "end": "",
+      "description": "A framework for mapping prompt-response basins: sampling strategies that identify the distinct segmentation outputs a model can produce and estimate their probability mass under a limited inference budget.",
+      "methods": [
+        "Foundation segmentation models",
+        "Sampling design",
+        "Probability estimation"
+      ],
+      "links": []
+    },
+    {
+      "title": "Vision-Based Robotic Pick Selection for Agriculture Automation",
+      "start": "2026-05",
+      "end": "",
+      "description": "Visual perception modules for agricultural robots, built on foundation segmentation and detection models over RGB-D and robot data, with visual embeddings and human-in-the-loop learning feeding the robot's pick decisions.",
+      "methods": [
+        "RGB-D perception",
+        "Visual embeddings",
+        "Human-in-the-loop learning",
+        "PyTorch DDP",
+        "SLURM"
+      ],
+      "links": []
+    },
+    {
+      "title": "Quantifying Semantic Diversity of Visual Reasoning Tasks in LLMs",
+      "start": "2025-02",
+      "end": "",
+      "description": "A large-scale comparison of human and LLM reasoning on ARC-style visual tasks. A new similarity metric shows roughly 2× lower semantic diversity in LLaMA-family models, and a statistical and manifold analysis framework compares solution trajectories across tasks.",
+      "methods": [
+        "LLM evaluation",
+        "Semantic similarity metrics",
+        "Manifold analysis",
+        "Statistics"
+      ],
+      "links": []
+    },
+    {
+      "title": "SMART-AFM: Semi-Automated Morphology Analysis of Cellulose Nanocrystals",
+      "start": "2022-08",
+      "end": "2025-02",
+      "description": "An open-source pipeline for atomic force microscopy image analysis that sped up analysis about 40× with about 5% error, reduced measurement variability between labs and improved reproducibility. It covers segmentation, feature extraction, image-quality assessment, artifact-aware preprocessing, uncertainty-aware validation and batch processing.",
+      "methods": [
+        "Image segmentation",
+        "Feature extraction",
+        "Image-quality assessment",
+        "Python"
+      ],
+      "links": []
     }
   ]
 }

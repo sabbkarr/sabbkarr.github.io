@@ -2,18 +2,43 @@
   "_comment": "News items for news.html and the 3 most recent on the home page. Order does not matter; they are sorted newest first. Each entry: date (YYYY-MM-DD or YYYY-MM), headline (one line), url (optional, leave empty for none), detail (optional short sentence after the headline).",
   "news": [
     {
-      "date": "2026-11-01",
-      "headline": "[[NEWS_HEADLINE — e.g. Launched this website.]]",
+      "date": "2026-09",
+      "headline": "Started a new project mapping the prompt-response landscape of foundation segmentation models.",
       "url": ""
     },
     {
-      "date": "2026-09-15",
-      "headline": "[[NEWS_HEADLINE]]",
-      "url": "[[OPTIONAL_LINK]]"
+      "date": "2026-05",
+      "headline": "Joined the Georgia Tech Research Institute's ATAS Lab as a research intern for the summer.",
+      "url": "https://gtri.gatech.edu/laboratories/aerospace-transportation-advanced-systems-laboratory"
     },
     {
-      "date": "2026-06",
-      "headline": "[[NEWS_HEADLINE]]",
+      "date": "2026-05",
+      "headline": "Completed my M.Sc. in Computer Science (Machine Learning) at Georgia Tech.",
+      "url": ""
+    },
+    {
+      "date": "2026-01",
+      "headline": "Started my PhD in Machine Learning at Georgia Tech, with a minor in Materials Science.",
+      "url": ""
+    },
+    {
+      "date": "2025",
+      "headline": "Our paper on semi-automatic AFM image analysis for cellulose nanocrystal size measurement was published in Cellulose.",
+      "url": ""
+    },
+    {
+      "date": "2025",
+      "headline": "Received the Jewell Family Fellowship.",
+      "url": ""
+    },
+    {
+      "date": "2024-06",
+      "headline": "Presented a poster at the International Conference on Nanotechnology for Renewable Materials.",
+      "url": ""
+    },
+    {
+      "date": "2024-04",
+      "headline": "Presented a poster at the MRS Spring Meeting.",
       "url": ""
     }
   ]

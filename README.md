@@ -2,7 +2,7 @@
 
 Personal academic site. Plain HTML, one stylesheet, one small script. No framework and no build step; GitHub Pages serves the files as they are.
 
-Design: a minimal Swiss-style layout (Geist type, large name and research question, wave-line field, hairline list rows, light/dark toggle), modeled on the look of ndrsn0208.github.io and written from scratch.
+Design: a minimal Swiss-style layout (Geist type, large name and research question, hairline list rows, light/dark toggle), modeled on the look of ndrsn0208.github.io and written from scratch.
 
 Live at **https://sabbkarr.github.io**
 
@@ -21,7 +21,7 @@ Live at **https://sabbkarr.github.io**
 ├── .nojekyll               Tells GitHub Pages to serve files as-is (no Jekyll)
 ├── assets/
 │   ├── css/style.css       All styling; colors, fonts, spacing are CSS variables at the top
-│   ├── js/site.js          Theme toggle, email, wave field, and renderers for every data-driven list
+│   ├── js/site.js          Theme toggle, email, and renderers for every data-driven list
 │   ├── fonts/              Geist variable font (self-hosted, SIL OFL)
 │   ├── img/                favicon.svg, headshot (optional)
 │   └── cv/                 put cv.pdf here
@@ -35,11 +35,9 @@ Live at **https://sabbkarr.github.io**
 │   ├── index.html          Post list with tag filter
 │   ├── index.json          Which posts are published (list of slugs)
 │   ├── content/            One Markdown file per post (+ images/)
-│   │   ├── _template.md
-│   │   └── hello-world.md
+│   │   └── _template.md
 │   └── posts/              One small HTML shell per post
-│       ├── _template.html
-│       └── hello-world.html
+│       └── _template.html
 └── tools/                  Optional helpers (Python 3, standard library only)
     ├── fill_placeholders.py
     ├── new_post.py
@@ -80,7 +78,9 @@ This replaces those placeholders in every page header, footer and link.
 
 **3. Lists.** Edit the JSON files in `data/`. Each has a `_comment` describing its fields. Entries are sorted automatically, so add new items anywhere. Links left empty or as `[[...]]` are hidden. JSON is strict: use double quotes and no trailing commas. `python3 -m json.tool data/news.json` will tell you if a file is broken.
 
-**4. CV.** Save it as `assets/cv/cv.pdf`.
+**4. CV.** Save it as `assets/cv/cv.pdf`, then uncomment the CV links in each page's footer and in `contact.html` (search for `cv.pdf`).
+
+**Blog on the home page.** The Blog section on the home page hides itself until there is at least one published post.
 
 **Publications on the home page.** Set `"selected": true` on the papers to feature under "Selected papers" (if none are marked, the newest are shown). Optional `topics` (list) become filters on the Papers page alongside the type, and `abstract` is shown when a paper's + is opened.
 
@@ -146,7 +146,6 @@ All internal links are relative, so the same files also work from a subpath (e.g
 ## Accessibility and privacy notes
 
 - Skip-to-content link, semantic landmarks, visible focus outlines, `aria-current` on the active nav item, arrow-key topic tabs, labelled expand buttons.
-- The wave animation pauses when off-screen and is static for visitors who prefer reduced motion.
 - Text contrast meets WCAG AA in both light and dark modes.
 - No analytics, trackers or cookies. The only stored value is the light/dark choice (localStorage).
 - Your email address never appears whole in the HTML; it's assembled by JavaScript when the page loads.

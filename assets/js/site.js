@@ -3,7 +3,7 @@
    ---------------------------------------------------------------------
    - Light/dark toggle (remembered per browser)
    - Scrape-resistant email links
-   - Home: research-topic tabs, wave-field drawing, news, selected papers, posts
+   - Home: research-topic tabs, news, selected papers, recent posts
    - Renders research, news, projects, publications and blog from JSON/Markdown
 
    Each page tells this script where the site root is with
@@ -15,7 +15,6 @@
   "use strict";
 
   var ROOT = document.body.getAttribute("data-root") || "";
-  var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* ---------- helpers ---------- */
   function esc(s) {
@@ -107,75 +106,6 @@
   });
   document.querySelectorAll("[data-year]").forEach(function (el) { el.textContent = new Date().getFullYear(); });
 
-  /* ---------- wave field (home) ---------- */
-  var field = null;
-  function WaveField(canvas) {
-    var ctx = canvas.getContext("2d"), w = 0, h = 0, dpr = 1, t = 0, raf = 0, visible = true;
-    var target = { cx: 0.42, amp: 1 }, cur = { cx: 0.42, amp: 1 };
-    var colors = {};
-    function readColors() {
-      var cs = getComputedStyle(document.documentElement);
-      colors.line = cs.getPropertyValue("--line").trim() || "rgba(0,0,0,.16)";
-      colors.accent = cs.getPropertyValue("--line-accent").trim() || "rgba(10,108,255,.55)";
-    }
-    function size() {
-      var r = canvas.getBoundingClientRect();
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
-      w = r.width; h = r.height;
-      canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    }
-    function draw() {
-      ctx.clearRect(0, 0, w, h);
-      var n = Math.max(26, Math.round(h / 9)), gap = h / (n - 1), step = Math.max(6, w / 180);
-      var cx = cur.cx * w, sig = Math.max(140, w * 0.14), accentLine = Math.round(n * 0.55);
-      for (var i = 0; i < n; i++) {
-        var y0 = i * gap, k = i / n;
-        ctx.beginPath();
-        for (var x = -step; x <= w + step; x += step) {
-          var u = x / w;
-          var bump = Math.exp(-Math.pow((x - cx) / sig, 2));
-          var y = y0
-            + Math.sin(u * 5.1 + k * 2.2 + t * 0.35) * 7
-            + Math.sin(u * 11.3 - k * 3.1 + t * 0.22) * 3
-            - bump * cur.amp * 46 * Math.sin(k * Math.PI);
-          if (x === -step) ctx.moveTo(x, y); else ctx.lineTo(x, y);
-        }
-        var isAccent = i === accentLine;
-        ctx.strokeStyle = isAccent ? colors.accent : colors.line;
-        ctx.lineWidth = isAccent ? 1.25 : 1;
-        ctx.stroke();
-      }
-    }
-    function frame() {
-      raf = 0;
-      cur.cx += (target.cx - cur.cx) * 0.05;
-      cur.amp += (target.amp - cur.amp) * 0.05;
-      t += 0.016;
-      draw();
-      if (visible && !document.hidden) raf = requestAnimationFrame(frame);
-    }
-    function start() { if (!reduceMotion && !raf && visible) raf = requestAnimationFrame(frame); }
-    readColors(); size(); draw();
-    window.addEventListener("resize", function () { size(); draw(); });
-    document.addEventListener("themechange", function () { readColors(); draw(); });
-    if (window.matchMedia) window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function () { readColors(); draw(); });
-    document.addEventListener("visibilitychange", start);
-    if ("IntersectionObserver" in window) {
-      new IntersectionObserver(function (es) { visible = es[0].isIntersecting; start(); }).observe(canvas);
-    }
-    start();
-    return {
-      focus: function (index, total) {
-        target.cx = total > 1 ? 0.25 + 0.5 * (index / (total - 1)) : 0.42;
-        target.amp = 0.8 + 0.5 * ((index % 3) / 2);
-        if (reduceMotion) { cur.cx = target.cx; cur.amp = target.amp; draw(); } else start();
-      }
-    };
-  }
-  var canvas = document.querySelector(".field canvas");
-  if (canvas && canvas.getContext) field = WaveField(canvas);
-
   /* ---------- renderers ---------- */
   var R = {};
 
@@ -196,7 +126,6 @@
         var d = dirs[i];
         note.setAttribute("aria-labelledby", "topic-" + i);
         note.innerHTML = esc(d.summary || d.description) + ' <a href="research.html#' + esc(slug(d.name)) + '">More</a>';
-        if (field) field.focus(i, dirs.length);
       }
       el.addEventListener("click", function (e) { var b = e.target.closest(".topic"); if (b) select(tabs.indexOf(b)); });
       el.addEventListener("keydown", function (e) {
@@ -252,7 +181,8 @@
   function loadPubs() {
     return getJSON("data/publications.json").then(function (data) {
       var me = isPlaceholder(data.highlight_author) ? "" : String(data.highlight_author || "").toLowerCase();
-      var pubs = (data.publications || []).slice().sort(function (a, b) { return (+b.year || 0) - (+a.year || 0) || String(a.title).localeCompare(String(b.title)); });
+      // Papers without a year (in preparation / under review) are listed first.
+      var pubs = (data.publications || []).slice().sort(function (a, b) { return (+b.year || 9999) - (+a.year || 9999) || String(a.title).localeCompare(String(b.title)); });
       return { me: me, pubs: pubs };
     });
   }
@@ -286,7 +216,9 @@
     var count = document.getElementById("pub-count");
     loadPubs().then(function (d) {
       var pubs = d.pubs, state = { q: "", f: "" };
-      var facets = uniq([].concat.apply([], pubs.map(function (p) { return (p.topics || []).concat(p.type ? [p.type] : []); }))).filter(function (v) { return !isPlaceholder(v); });
+      // Filter row = topics (falls back to types if no paper has topics).
+      var facets = uniq([].concat.apply([], pubs.map(function (p) { return p.topics || []; }))).filter(function (v) { return !isPlaceholder(v); });
+      if (!facets.length) facets = uniq(pubs.map(function (p) { return p.type; }));
       filterButtons(bar, facets, "", function (v) { state.f = v; draw(); });
       search.addEventListener("input", function () { state.q = search.value.trim().toLowerCase(); draw(); });
       el.addEventListener("click", function (e) {
@@ -307,7 +239,7 @@
         count.textContent = shown.length + (shown.length === 1 ? " paper" : " papers");
         if (!shown.length) { el.innerHTML = '<p class="notice">No papers match.</p>'; return; }
         var groups = [], byYear = {};
-        shown.forEach(function (p) { var y = String(p.year || "Other"); if (!byYear[y]) { byYear[y] = []; groups.push(y); } byYear[y].push(p); });
+        shown.forEach(function (p) { var y = String(p.year || "In prep."); if (!byYear[y]) { byYear[y] = []; groups.push(y); } byYear[y].push(p); });
         el.innerHTML = groups.map(function (y) {
           return '<section class="year-group" aria-label="' + esc(y) + '"><div class="year-label">' + esc(y) + '</div><ul class="rows">' +
             byYear[y].map(function (p) {
@@ -356,7 +288,7 @@
     var limit = parseInt(el.getAttribute("data-limit"), 10) || 4;
     loadPosts().then(function (posts) {
       posts = posts.slice(0, limit);
-      if (!posts.length) { el.innerHTML = '<p class="notice">No posts yet.</p>'; return; }
+      if (!posts.length) { var sec = el.closest("section"); if (sec) sec.hidden = true; return; }
       el.innerHTML = '<ul class="rows">' + posts.map(function (p) {
         return '<li class="row"><h3 class="row-title"><a href="' + ROOT + "blog/posts/" + esc(p.slug) + '.html">' + esc(p.meta.title || p.slug) + '</a></h3><time class="row-meta" datetime="' + esc(p.meta.date) + '">' + fmtMonth(p.meta.date, true) + "</time></li>";
       }).join("") + "</ul>";

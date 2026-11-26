@@ -1,72 +1,129 @@
 {
-  "_comment": "Publications for publications.html (and 'Selected papers' on the home page). Regenerate from Google Scholar with tools/scholar_to_json.py (see README) or edit by hand. highlight_author: your name exactly as in author lists (shown in full contrast). Each entry: title, authors (list), venue, year, type (conference | journal | workshop | preprint | thesis | other), topics (optional list; these and the types become the filter row), selected (true to feature on the home page), note (optional, e.g. an award), abstract (optional, shown when the + is opened), links (list of {label, url}).",
-  "highlight_author": "[[NAME_AS_IN_AUTHOR_LISTS]]",
+  "_comment": "Publications for publications.html (and 'Selected papers' on the home page). Regenerate from Google Scholar with tools/scholar_to_json.py (see README) or edit by hand. highlight_author: your name exactly as in author lists (shown in full contrast). Each entry: title, authors (list), venue, year, type (conference | journal | workshop | preprint | thesis | other), topics (optional list; these become the filter row on the Papers page), selected (true to feature on the home page), note (optional, e.g. an award), abstract (optional, shown when the + is opened), links (list of {label, url}).",
+  "highlight_author": "S. Karimi",
   "publications": [
     {
-      "title": "[[PAPER_TITLE]]",
+      "title": "Do LLMs Think as Diversely as Humans? Measuring Solution Diversity in Visual Compositional and Abstract Reasoning of LLMs",
       "authors": [
-        "[[NAME_AS_IN_AUTHOR_LISTS]]",
-        "[[COAUTHOR]]",
-        "[[COAUTHOR]]"
+        "S. Karimi",
+        "V. Marupudi",
+        "S. Varma"
       ],
-      "venue": "[[CONFERENCE_NAME]]",
-      "year": 2026,
-      "type": "conference",
-      "note": "",
-      "links": [
-        {
-          "label": "paper",
-          "url": "[[PAPER_URL]]"
-        },
-        {
-          "label": "code",
-          "url": "[[CODE_URL]]"
-        }
-      ],
+      "venue": "In preparation for NeurIPS 2027",
+      "year": "",
+      "type": "in preparation",
       "topics": [
-        "[[TOPIC]]"
+        "LLMs",
+        "visual reasoning"
       ],
       "selected": true,
-      "abstract": "[[ONE_OR_TWO_SENTENCE_SUMMARY]]"
+      "note": "",
+      "abstract": "Compares the semantic diversity of human and LLM solutions on ARC-style visual reasoning tasks, finding roughly 2× lower diversity in LLaMA-family models.",
+      "links": []
     },
     {
-      "title": "[[PAPER_TITLE]]",
+      "title": "Robot Pick Selection of Deformable Objects for Agriculture Automation",
       "authors": [
-        "[[COAUTHOR]]",
-        "[[NAME_AS_IN_AUTHOR_LISTS]]"
+        "M. Das",
+        "S. Karimi",
+        "A. P. Singh",
+        "K. Sweatman",
+        "C. Usher"
       ],
-      "venue": "arXiv preprint",
-      "year": 2025,
-      "type": "preprint",
-      "note": "Under review",
-      "links": [
-        {
-          "label": "arXiv",
-          "url": "[[ARXIV_URL]]"
-        }
-      ],
+      "venue": "In preparation for ICRA 2027",
+      "year": "",
+      "type": "in preparation",
       "topics": [
-        "[[TOPIC]]"
+        "robotics",
+        "computer vision"
       ],
       "selected": true,
-      "abstract": "[[ONE_OR_TWO_SENTENCE_SUMMARY]]"
+      "note": "",
+      "abstract": "",
+      "links": []
     },
     {
-      "title": "[[PAPER_TITLE]]",
+      "title": "A Semi-automatic Workflow for Atomic Force Microscopy Image Analysis and Cellulose Nanocrystal Particle Size Measurements",
       "authors": [
-        "[[NAME_AS_IN_AUTHOR_LISTS]]",
-        "[[COAUTHOR]]"
+        "S. Karimi",
+        "S. Yucel",
+        "R. J. Moon",
+        "L. J. Johnston",
+        "N. J. Bechle",
+        "W. Batchelor",
+        "J-Y. Chof",
+        "S. R. Kalidindi"
       ],
-      "venue": "[[WORKSHOP_NAME]]",
+      "venue": "Cellulose (Springer Nature)",
       "year": 2025,
-      "type": "workshop",
-      "note": "",
-      "links": [],
+      "type": "journal",
       "topics": [
-        "[[TOPIC]]"
+        "scientific imaging"
+      ],
+      "selected": true,
+      "note": "",
+      "abstract": "SMART-AFM: a semi-automatic pipeline for AFM image analysis that speeds up cellulose nanocrystal size measurement and improves reproducibility across labs.",
+      "links": [
+        {
+          "label": "Scholar",
+          "url": "https://scholar.google.com/citations?user=cG35i5gAAAAJ"
+        }
+      ]
+    },
+    {
+      "title": "Advancements and Applications of Digital Image Correlation to Characterize Residual Stress: A Review",
+      "authors": [
+        "N. Nasajpour-Esfahani",
+        "S. Karimi",
+        "S. Nasseri",
+        "H. Borna",
+        "A. Fadavi Boostani",
+        "R. Gao",
+        "W. Huang",
+        "H. Garmestani",
+        "S. Y. Liang"
+      ],
+      "venue": "Materials Characterization (Elsevier)",
+      "year": 2025,
+      "type": "journal",
+      "topics": [
+        "scientific imaging"
       ],
       "selected": false,
-      "abstract": "[[ONE_OR_TWO_SENTENCE_SUMMARY]]"
+      "note": "Review",
+      "abstract": "",
+      "links": [
+        {
+          "label": "Scholar",
+          "url": "https://scholar.google.com/citations?user=cG35i5gAAAAJ"
+        }
+      ]
+    },
+    {
+      "title": "High-Performance Polymer Nanocomposites' Based Solar Cells",
+      "authors": [
+        "M. Bailey Reichelscheimer",
+        "S. Karimi",
+        "H. Borna",
+        "H. Bahar",
+        "N. Nasajpour-Esfahani",
+        "H. Garmestani"
+      ],
+      "venue": "Engineering Applications of Polymer-Based Nanocomposites (Springer Nature)",
+      "year": 2025,
+      "type": "book chapter",
+      "topics": [
+        "materials"
+      ],
+      "selected": false,
+      "note": "",
+      "abstract": "",
+      "links": [
+        {
+          "label": "Scholar",
+          "url": "https://scholar.google.com/citations?user=cG35i5gAAAAJ"
+        }
+      ]
     }
   ]
 }

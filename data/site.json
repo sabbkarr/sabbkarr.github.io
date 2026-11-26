@@ -1,12 +1,12 @@
 {
   "_comment": "Global placeholders used across the HTML pages. Fill these in, then run: python3 tools/fill_placeholders.py  — it replaces each [[KEY]] in every .html file with your value. Keys you leave as \"\" are skipped, so you can run it again later. Section-specific placeholders (bio paragraphs, intro text, etc.) are edited directly in each page.",
-  "NAME": "",
-  "SHORT_TITLE": "",
-  "AFFILIATION": "",
-  "META_DESCRIPTION": "",
-  "GOOGLE_SCHOLAR_URL": "",
-  "GITHUB_URL": "",
-  "LINKEDIN_URL": "",
-  "EMAIL_USER": "",
-  "EMAIL_DOMAIN": ""
+  "NAME": "Saba Karimi",
+  "SHORT_TITLE": "PhD student in Machine Learning",
+  "AFFILIATION": "Georgia Tech",
+  "META_DESCRIPTION": "Saba Karimi, PhD student in Machine Learning at Georgia Tech, working on agentic AI, visual reasoning and foundation models.",
+  "GOOGLE_SCHOLAR_URL": "https://scholar.google.com/citations?user=cG35i5gAAAAJ",
+  "GITHUB_URL": "https://github.com/sabbkarr",
+  "LINKEDIN_URL": "https://www.linkedin.com/in/sabbkarr",
+  "EMAIL_USER": "skarimi30",
+  "EMAIL_DOMAIN": "gatech.edu"
 }
