@@ -9,7 +9,7 @@ What it does:
   - Reads every entry (title, authors, venue, year).
   - Guesses `type` (conference / journal / workshop / preprint / thesis / other)
     from the BibTeX entry type and venue name. Check and correct these by hand.
-  - KEEPS any links, notes, or types you already edited in data/publications.json
+  - KEEPS any links, notes, types, topics, abstracts and 'selected' flags you already edited in data/publications.json
     for papers with the same title, so re-importing never erases your work.
   - Writes the merged list back to data/publications.json (a .bak copy is saved).
 
@@ -105,7 +105,10 @@ def main():
             "venue": e["venue"] or prev.get("venue", ""),
             "year": int(e["year"]) if str(e["year"]).isdigit() else (e["year"] or prev.get("year", "")),
             "type": prev.get("type") or guess_type(e["_etype"], e["venue"]),
+            "topics": prev.get("topics", []),
+            "selected": prev.get("selected", False),
             "note": prev.get("note", ""),
+            "abstract": prev.get("abstract", ""),
             "links": prev.get("links", []),
         })
     merged += list(old.values())  # keep hand-added papers that aren't in the export

@@ -1,33 +1,72 @@
 {
-  "_comment": "Publications for publications.html. Regenerate from Google Scholar with tools/scholar_to_json.py (see README) or edit by hand. highlight_author: your name exactly as it appears in author lists (bolded). Each entry: title, authors (list), venue, year, type (conference | journal | workshop | preprint | thesis | other — drives the type filter), note (optional, e.g. 'Oral'), links (list of {label, url}).",
+  "_comment": "Publications for publications.html (and 'Selected papers' on the home page). Regenerate from Google Scholar with tools/scholar_to_json.py (see README) or edit by hand. highlight_author: your name exactly as in author lists (shown in full contrast). Each entry: title, authors (list), venue, year, type (conference | journal | workshop | preprint | thesis | other), topics (optional list; these and the types become the filter row), selected (true to feature on the home page), note (optional, e.g. an award), abstract (optional, shown when the + is opened), links (list of {label, url}).",
   "highlight_author": "[[NAME_AS_IN_AUTHOR_LISTS]]",
   "publications": [
     {
       "title": "[[PAPER_TITLE]]",
-      "authors": ["[[NAME_AS_IN_AUTHOR_LISTS]]", "[[COAUTHOR]]", "[[COAUTHOR]]"],
+      "authors": [
+        "[[NAME_AS_IN_AUTHOR_LISTS]]",
+        "[[COAUTHOR]]",
+        "[[COAUTHOR]]"
+      ],
       "venue": "[[CONFERENCE_NAME]]",
       "year": 2026,
       "type": "conference",
       "note": "",
-      "links": [ { "label": "paper", "url": "[[PAPER_URL]]" }, { "label": "code", "url": "[[CODE_URL]]" } ]
+      "links": [
+        {
+          "label": "paper",
+          "url": "[[PAPER_URL]]"
+        },
+        {
+          "label": "code",
+          "url": "[[CODE_URL]]"
+        }
+      ],
+      "topics": [
+        "[[TOPIC]]"
+      ],
+      "selected": true,
+      "abstract": "[[ONE_OR_TWO_SENTENCE_SUMMARY]]"
     },
     {
       "title": "[[PAPER_TITLE]]",
-      "authors": ["[[COAUTHOR]]", "[[NAME_AS_IN_AUTHOR_LISTS]]"],
+      "authors": [
+        "[[COAUTHOR]]",
+        "[[NAME_AS_IN_AUTHOR_LISTS]]"
+      ],
       "venue": "arXiv preprint",
       "year": 2025,
       "type": "preprint",
       "note": "Under review",
-      "links": [ { "label": "arXiv", "url": "[[ARXIV_URL]]" } ]
+      "links": [
+        {
+          "label": "arXiv",
+          "url": "[[ARXIV_URL]]"
+        }
+      ],
+      "topics": [
+        "[[TOPIC]]"
+      ],
+      "selected": true,
+      "abstract": "[[ONE_OR_TWO_SENTENCE_SUMMARY]]"
     },
     {
       "title": "[[PAPER_TITLE]]",
-      "authors": ["[[NAME_AS_IN_AUTHOR_LISTS]]", "[[COAUTHOR]]"],
+      "authors": [
+        "[[NAME_AS_IN_AUTHOR_LISTS]]",
+        "[[COAUTHOR]]"
+      ],
       "venue": "[[WORKSHOP_NAME]]",
       "year": 2025,
       "type": "workshop",
       "note": "",
-      "links": []
+      "links": [],
+      "topics": [
+        "[[TOPIC]]"
+      ],
+      "selected": false,
+      "abstract": "[[ONE_OR_TWO_SENTENCE_SUMMARY]]"
     }
   ]
 }

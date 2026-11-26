@@ -1,58 +1,76 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Contact · [[NAME]]</title>
   <meta name="description" content="[[META_DESCRIPTION]]">
-  <!-- Third-party resources: none. No analytics or tracking. -->
+  <!-- Third-party resources: none. Geist font is self-hosted (OFL). No analytics or tracking. -->
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/style.css">
-  <script>document.documentElement.classList.add("js");</script>
+  <script>
+    document.documentElement.classList.replace("no-js", "js");
+    try { var t = localStorage.getItem("theme"); if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+  </script>
 </head>
 <body data-root="">
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
-    <div class="wrap">
-      <a class="site-title" href="index.html">[[NAME]]<small>[[SHORT_TITLE]] · [[AFFILIATION]]</small></a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
-      <nav id="site-nav" class="site-nav" aria-label="Main">
+    <div class="frame">
+      <a class="site-name" href="index.html">[[NAME]]</a>
+      <nav class="site-nav" aria-label="Main">
         <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="research.html">Research</a></li>
-        <li><a href="bio.html">Bio</a></li>
-        <li><a href="news.html">News</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="publications.html">Publications</a></li>
-        <li><a href="blog/index.html">Blog</a></li>
-        <li><a href="contact.html" aria-current="page">Contact</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="bio.html">Bio</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="publications.html">Publications</a></li>
+          <li><a href="blog/index.html">Blog</a></li>
+          <li><a href="contact.html" aria-current="page">Contact</a></li>
         </ul>
+        <button class="theme-toggle" type="button" aria-label="Switch appearance"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg></button>
       </nav>
     </div>
   </header>
 
-  <main id="main" class="wrap" tabindex="-1">
-    <h1>Contact</h1>
-    <p class="page-intro">[[CONTACT_NOTE — e.g. "I'm happy to talk about research, collaborations, or open roles."]]</p>
-
-    <!-- EDIT: split your email at the @. It is assembled by JavaScript at load time,
-         so the full address never appears in the HTML source that scrapers read. -->
-    <dl class="contact-list">
-      <dt>Email</dt>
-      <dd><span data-email-user="[[EMAIL_USER]]" data-email-domain="[[EMAIL_DOMAIN]]">[[EMAIL_USER]] [at] [[EMAIL_DOMAIN]]</span></dd>
-      <dt>Google Scholar</dt><dd><a href="[[GOOGLE_SCHOLAR_URL]]">[[GOOGLE_SCHOLAR_URL]]</a></dd>
-      <dt>LinkedIn</dt><dd><a href="[[LINKEDIN_URL]]">[[LINKEDIN_URL]]</a></dd>
-      <dt>GitHub</dt><dd><a href="[[GITHUB_URL]]">[[GITHUB_URL]]</a></dd>
-      <dt>CV</dt><dd><a href="assets/cv/cv.pdf">Download CV (PDF)</a></dd>
-      <dt>Location</dt><dd>[[DEPARTMENT]]<br>[[INSTITUTION]]<br>[[CITY, REGION]]</dd>
-    </dl>
+  <main id="main" class="frame" tabindex="-1">
+    <div class="page-head">
+      <h1 class="page-title">Contact</h1>
+    </div>
+    <!-- EDIT: one sentence on what you're open to. -->
+    <p class="page-intro quiet">[[CONTACT_NOTE — e.g. "I'm happy to talk about research, collaborations, or internships."]]</p>
+    <section class="ledger" aria-label="Contact details" style="margin-top:0">
+      <h2>Email</h2>
+      <ul class="ledger-items"><li class="ledger-item"><strong><span data-email-user="[[EMAIL_USER]]" data-email-domain="[[EMAIL_DOMAIN]]">[[EMAIL_USER]] [at] [[EMAIL_DOMAIN]]</span></strong></li></ul>
+    </section>
+    <section class="ledger" aria-label="Profiles">
+      <h2>Elsewhere</h2>
+      <ul class="ledger-items">
+        <li class="ledger-item"><strong><a href="[[GOOGLE_SCHOLAR_URL]]">Google Scholar</a></strong></li>
+        <li class="ledger-item"><strong><a href="[[LINKEDIN_URL]]">LinkedIn</a></strong></li>
+        <li class="ledger-item"><strong><a href="[[GITHUB_URL]]">GitHub</a></strong></li>
+        <li class="ledger-item"><strong><a href="assets/cv/cv.pdf">CV (PDF)</a></strong></li>
+      </ul>
+    </section>
+    <section class="ledger" aria-label="Address">
+      <h2>Office</h2>
+      <ul class="ledger-items"><li class="ledger-item"><span class="what" style="color:inherit">[[DEPARTMENT]]<br>[[INSTITUTION]]<br>[[CITY, REGION]]</span></li></ul>
+    </section>
   </main>
 
   <footer class="site-footer">
-    <div class="wrap">
-      <span>&copy; <span data-year>2026</span> [[NAME]]</span>
-      <span><a href="contact.html">Contact</a></span>
+    <div class="frame">
+      <!-- Email is split at the @ and assembled by site.js so scrapers don't see it. -->
+      <p class="footer-mail"><span data-email-user="[[EMAIL_USER]]" data-email-domain="[[EMAIL_DOMAIN]]">[[EMAIL_USER]] [at] [[EMAIL_DOMAIN]]</span></p>
+      <ul class="footer-links">
+        <li><a href="[[GOOGLE_SCHOLAR_URL]]">Google Scholar</a></li>
+        <li><a href="[[LINKEDIN_URL]]">LinkedIn</a></li>
+        <li><a href="[[GITHUB_URL]]">GitHub</a></li>
+        <li><a href="assets/cv/cv.pdf">CV</a></li>
+      </ul>
     </div>
   </footer>
   <script src="assets/js/site.js"></script>

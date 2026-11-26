@@ -2,13 +2,15 @@
 
 Personal academic site. Plain HTML, one stylesheet, one small script. No framework and no build step; GitHub Pages serves the files as they are.
 
+Design: a minimal Swiss-style layout (Geist type, large name and research question, wave-line field, hairline list rows, light/dark toggle), modeled on the look of ndrsn0208.github.io and written from scratch.
+
 Live at **https://sabbkarr.github.io**
 
 ## File tree
 
 ```
 .
-├── index.html              Home: name, tagline, intro, section links, latest 3 news items
+├── index.html              Home: name, research question, topic tabs, intro, news, selected papers, recent posts
 ├── research.html           Research directions        ← data/research.json
 ├── bio.html                Biography + summary box     (edit the HTML directly)
 ├── news.html               Dated news list             ← data/news.json
@@ -19,7 +21,8 @@ Live at **https://sabbkarr.github.io**
 ├── .nojekyll               Tells GitHub Pages to serve files as-is (no Jekyll)
 ├── assets/
 │   ├── css/style.css       All styling; colors, fonts, spacing are CSS variables at the top
-│   ├── js/site.js          Nav toggle, email, and renderers for every data-driven list
+│   ├── js/site.js          Theme toggle, email, wave field, and renderers for every data-driven list
+│   ├── fonts/              Geist variable font (self-hosted, SIL OFL)
 │   ├── img/                favicon.svg, headshot (optional)
 │   └── cv/                 put cv.pdf here
 ├── data/
@@ -70,16 +73,18 @@ python3 tools/fill_placeholders.py
 This replaces those placeholders in every page header, footer and link.
 
 **2. Prose pages.** Edit the HTML directly; each editable block has an `<!-- EDIT: ... -->` comment.
-- `index.html`: tagline and intro paragraph
-- `research.html`: the overview sentence (the directions themselves are in `data/research.json`)
-- `bio.html`: summary box, bio paragraphs, education, experience. To add a photo, save it as `assets/img/headshot.jpg`, uncomment the `<img>` line, write real alt text, and add `has-photo` to the `<section class="profile">` class.
+- `index.html`: research question and the two intro paragraphs (topic tabs and the "Research interests" line come from `data/research.json`)
+- `research.html`: the overview sentence (the directions themselves are in `data/research.json`: `short` is the home-page tab label, `summary` the one line shown under it)
+- `bio.html`: the large statement sentence, bio paragraphs, education, experience, service. To add a photo, save it as `assets/img/headshot.jpg`, uncomment the `<img>` line and write real alt text.
 - `contact.html`: contact note and location
 
 **3. Lists.** Edit the JSON files in `data/`. Each has a `_comment` describing its fields. Entries are sorted automatically, so add new items anywhere. Links left empty or as `[[...]]` are hidden. JSON is strict: use double quotes and no trailing commas. `python3 -m json.tool data/news.json` will tell you if a file is broken.
 
 **4. CV.** Save it as `assets/cv/cv.pdf`.
 
-**Theme.** All colors, fonts and spacing are CSS variables at the top of `assets/css/style.css`. The dark palette is in the `prefers-color-scheme: dark` block (and repeated under `[data-theme="dark"]`). To change the font, edit `--font-body` / `--font-heading`.
+**Publications on the home page.** Set `"selected": true` on the papers to feature under "Selected papers" (if none are marked, the newest are shown). Optional `topics` (list) become filters on the Papers page alongside the type, and `abstract` is shown when a paper's + is opened.
+
+**Theme.** All colors, fonts and spacing are CSS variables at the top of `assets/css/style.css`. The dark palette is in the `prefers-color-scheme: dark` block (and repeated under `[data-theme="dark"]`). The ◐ button switches light/dark and remembers the choice in the visitor's browser. The accent blue is `--accent`. To change the font, edit `--font-sans`.
 
 ## Adding a blog post
 
@@ -97,7 +102,7 @@ By hand (three steps):
 
 Images: put them in `blog/content/images/` and reference them as `![alt text](images/file.png)`.
 
-Posts are rendered in the browser with [marked.js](https://marked.js.org) from jsDelivr, the only third-party resource on the site. Post HTML is not sanitized, which is fine because only you write posts; don't paste untrusted HTML into them.
+Posts are rendered in the browser with [marked.js](https://marked.js.org) from jsDelivr, the only third-party resource on the site (the Geist font is self-hosted). Post HTML is not sanitized, which is fine because only you write posts; don't paste untrusted HTML into them.
 
 ## Updating publications from Google Scholar
 
@@ -140,7 +145,8 @@ All internal links are relative, so the same files also work from a subpath (e.g
 
 ## Accessibility and privacy notes
 
-- Skip-to-content link, semantic landmarks, visible focus outlines, `aria-current` on the active nav item, keyboard-operable menu (Escape closes it on mobile).
+- Skip-to-content link, semantic landmarks, visible focus outlines, `aria-current` on the active nav item, arrow-key topic tabs, labelled expand buttons.
+- The wave animation pauses when off-screen and is static for visitors who prefer reduced motion.
 - Text contrast meets WCAG AA in both light and dark modes.
-- No analytics, trackers, cookies or web fonts.
+- No analytics, trackers or cookies. The only stored value is the light/dark choice (localStorage).
 - Your email address never appears whole in the HTML; it's assembled by JavaScript when the page loads.

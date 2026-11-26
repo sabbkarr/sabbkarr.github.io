@@ -1,52 +1,61 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Blog · [[NAME]]</title>
   <meta name="description" content="[[META_DESCRIPTION]]">
-  <!-- Third-party resources: none. No analytics or tracking. -->
+  <!-- Third-party resources: none. Geist font is self-hosted (OFL). No analytics or tracking. -->
   <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../assets/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../assets/css/style.css">
-  <script>document.documentElement.classList.add("js");</script>
+  <script>
+    document.documentElement.classList.replace("no-js", "js");
+    try { var t = localStorage.getItem("theme"); if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+  </script>
 </head>
 <body data-root="../">
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
-    <div class="wrap">
-      <a class="site-title" href="../index.html">[[NAME]]<small>[[SHORT_TITLE]] · [[AFFILIATION]]</small></a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
-      <nav id="site-nav" class="site-nav" aria-label="Main">
+    <div class="frame">
+      <a class="site-name" href="../index.html">[[NAME]]</a>
+      <nav class="site-nav" aria-label="Main">
         <ul>
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="../research.html">Research</a></li>
-        <li><a href="../bio.html">Bio</a></li>
-        <li><a href="../news.html">News</a></li>
-        <li><a href="../projects.html">Projects</a></li>
-        <li><a href="../publications.html">Publications</a></li>
-        <li><a href="../blog/index.html" aria-current="page">Blog</a></li>
-        <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../research.html">Research</a></li>
+          <li><a href="../bio.html">Bio</a></li>
+          <li><a href="../news.html">News</a></li>
+          <li><a href="../projects.html">Projects</a></li>
+          <li><a href="../publications.html">Publications</a></li>
+          <li><a href="../blog/index.html" aria-current="page">Blog</a></li>
+          <li><a href="../contact.html">Contact</a></li>
         </ul>
+        <button class="theme-toggle" type="button" aria-label="Switch appearance"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg></button>
       </nav>
     </div>
   </header>
 
-  <main id="main" class="wrap" tabindex="-1">
-    <h1>Blog</h1>
-    <p class="page-intro">[[BLOG_INTRO — optional one sentence about what you write here.]]</p>
-    <div class="filters" role="group" aria-label="Filter by tag">
-      <div class="chip-group" id="tag-filter"></div>
+  <main id="main" class="frame" tabindex="-1">
+    <div class="page-head">
+      <h1 class="page-title">Blog</h1>
     </div>
-    <p class="result-count" id="post-count" aria-live="polite"></p>
+    <div class="filterbar" id="tag-filter" role="group" aria-label="Filter by tag"></div>
+    <p class="count" id="post-count" aria-live="polite"></p>
     <div data-render="blog-index"></div>
-    <noscript><p class="notice">The post list is loaded with JavaScript. Please enable it to browse posts.</p></noscript>
+    <noscript><p class="notice">The post list is loaded with JavaScript.</p></noscript>
   </main>
 
   <footer class="site-footer">
-    <div class="wrap">
-      <span>&copy; <span data-year>2026</span> [[NAME]]</span>
-      <span><a href="../contact.html">Contact</a></span>
+    <div class="frame">
+      <!-- Email is split at the @ and assembled by site.js so scrapers don't see it. -->
+      <p class="footer-mail"><span data-email-user="[[EMAIL_USER]]" data-email-domain="[[EMAIL_DOMAIN]]">[[EMAIL_USER]] [at] [[EMAIL_DOMAIN]]</span></p>
+      <ul class="footer-links">
+        <li><a href="[[GOOGLE_SCHOLAR_URL]]">Google Scholar</a></li>
+        <li><a href="[[LINKEDIN_URL]]">LinkedIn</a></li>
+        <li><a href="[[GITHUB_URL]]">GitHub</a></li>
+        <li><a href="../assets/cv/cv.pdf">CV</a></li>
+      </ul>
     </div>
   </footer>
   <script src="../assets/js/site.js"></script>

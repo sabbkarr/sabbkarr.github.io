@@ -1,20 +1,36 @@
 {
-  "_comment": "Research directions shown on research.html, in the order listed. Each entry: name (short label), description (2-4 sentences), keywords (optional list), links (optional list of {label, url}). Replace the [[...]] placeholders.",
+  "_comment": "Research directions. On the home page, each direction's 'short' label becomes a topic tab and its 'summary' is shown under the tabs; research.html lists every direction with its full 'description' (2-4 sentences), 'keywords' and optional 'links' [{label, url}]. 'interests' is the comma-separated 'Research interests' line on the home page. Replace the [[...]] placeholders.",
+  "interests": [
+    "[[INTEREST_1]]",
+    "[[INTEREST_2]]",
+    "[[INTEREST_3]]"
+  ],
   "directions": [
     {
       "name": "[[DIRECTION_1_NAME]]",
+      "short": "[[DIRECTION_1_SHORT_LABEL]]",
+      "summary": "[[DIRECTION_1_ONE_SENTENCE]]",
       "description": "[[DIRECTION_1_DESCRIPTION — 2–4 sentences: the question, why it matters, and how you approach it.]]",
-      "keywords": ["[[KEYWORD]]", "[[KEYWORD]]"],
+      "keywords": [
+        "[[KEYWORD]]",
+        "[[KEYWORD]]"
+      ],
       "links": []
     },
     {
       "name": "[[DIRECTION_2_NAME]]",
+      "short": "[[DIRECTION_2_SHORT_LABEL]]",
+      "summary": "[[DIRECTION_2_ONE_SENTENCE]]",
       "description": "[[DIRECTION_2_DESCRIPTION]]",
-      "keywords": ["[[KEYWORD]]"],
+      "keywords": [
+        "[[KEYWORD]]"
+      ],
       "links": []
     },
     {
       "name": "[[DIRECTION_3_NAME]]",
+      "short": "[[DIRECTION_3_SHORT_LABEL]]",
+      "summary": "[[DIRECTION_3_ONE_SENTENCE]]",
       "description": "[[DIRECTION_3_DESCRIPTION]]",
       "keywords": [],
       "links": []
