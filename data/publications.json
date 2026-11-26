@@ -3,46 +3,6 @@
   "highlight_author": "S. Karimi",
   "publications": [
     {
-      "title": "Do LLMs Think as Diversely as Humans? Measuring Solution Diversity in Visual Compositional and Abstract Reasoning of LLMs",
-      "authors": [
-        "S. Karimi",
-        "V. Marupudi",
-        "S. Varma"
-      ],
-      "venue": "In preparation for NeurIPS 2027",
-      "year": "",
-      "type": "in preparation",
-      "topics": [
-        "LLMs",
-        "visual reasoning"
-      ],
-      "selected": true,
-      "note": "",
-      "abstract": "Compares the semantic diversity of human and LLM solutions on ARC-style visual reasoning tasks, finding roughly 2× lower diversity in LLaMA-family models.",
-      "links": []
-    },
-    {
-      "title": "Robot Pick Selection of Deformable Objects for Agriculture Automation",
-      "authors": [
-        "M. Das",
-        "S. Karimi",
-        "A. P. Singh",
-        "K. Sweatman",
-        "C. Usher"
-      ],
-      "venue": "In preparation for ICRA 2027",
-      "year": "",
-      "type": "in preparation",
-      "topics": [
-        "robotics",
-        "computer vision"
-      ],
-      "selected": true,
-      "note": "",
-      "abstract": "",
-      "links": []
-    },
-    {
       "title": "A Semi-automatic Workflow for Atomic Force Microscopy Image Analysis and Cellulose Nanocrystal Particle Size Measurements",
       "authors": [
         "S. Karimi",
@@ -89,7 +49,7 @@
       "topics": [
         "scientific imaging"
       ],
-      "selected": false,
+      "selected": true,
       "note": "Review",
       "abstract": "",
       "links": [
@@ -115,7 +75,7 @@
       "topics": [
         "materials"
       ],
-      "selected": false,
+      "selected": true,
       "note": "",
       "abstract": "",
       "links": [
