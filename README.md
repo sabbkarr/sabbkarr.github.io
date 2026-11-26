@@ -2,7 +2,7 @@
 
 Personal academic site. Plain HTML, one stylesheet, one small script. No framework and no build step; GitHub Pages serves the files as they are.
 
-Design: a minimal Swiss-style layout (Geist type, large name and research question, hairline list rows, light/dark toggle), modeled on the look of ndrsn0208.github.io and written from scratch.
+Design: sidebar layout, Instrument Serif headings with IBM Plex Sans and Plex Mono, warm paper background with a teal accent, light/dark toggle.
 
 Live at **https://sabbkarr.github.io**
 
@@ -22,7 +22,7 @@ Live at **https://sabbkarr.github.io**
 ├── assets/
 │   ├── css/style.css       All styling; colors, fonts, spacing are CSS variables at the top
 │   ├── js/site.js          Theme toggle, email, and renderers for every data-driven list
-│   ├── fonts/              Geist variable font (self-hosted, SIL OFL)
+│   ├── fonts/              Instrument Serif + IBM Plex Sans/Mono (self-hosted, SIL OFL)
 │   ├── img/                favicon.svg, headshot (optional)
 │   └── cv/                 put cv.pdf here
 ├── data/
@@ -62,7 +62,7 @@ Every placeholder looks like `[[SOMETHING]]`. To see what's left:
 python3 tools/fill_placeholders.py --dry-run
 ```
 
-**1. Global details (once).** Fill in `data/site.json` (name, short title, affiliation, profile URLs, and your email split at the `@`), then run:
+**1. Global details (once).** put their values in `data/site.json` and run:
 
 ```bash
 python3 tools/fill_placeholders.py
@@ -71,20 +71,20 @@ python3 tools/fill_placeholders.py
 This replaces those placeholders in every page header, footer and link.
 
 **2. Prose pages.** Edit the HTML directly; each editable block has an `<!-- EDIT: ... -->` comment.
-- `index.html`: research question and the two intro paragraphs (topic tabs and the "Research interests" line come from `data/research.json`)
-- `research.html`: the overview sentence (the directions themselves are in `data/research.json`: `short` is the home-page tab label, `summary` the one line shown under it)
+- `index.html`: the opening statement, intro paragraphs and guiding question (the numbered research directions and the Interests line come from `data/research.json`)
+- `research.html`: the overview sentence (the directions themselves are in `data/research.json`: `summary` is the one line shown on the home page)
 - `bio.html`: the large statement sentence, bio paragraphs, education, experience, service. To add a photo, save it as `assets/img/headshot.jpg`, uncomment the `<img>` line and write real alt text.
 - `contact.html`: contact note and location
 
 **3. Lists.** Edit the JSON files in `data/`. Each has a `_comment` describing its fields. Entries are sorted automatically, so add new items anywhere. Links left empty or as `[[...]]` are hidden. JSON is strict: use double quotes and no trailing commas. `python3 -m json.tool data/news.json` will tell you if a file is broken.
 
-**4. CV.** Save it as `assets/cv/cv.pdf`, then uncomment the CV links in each page's footer and in `contact.html` (search for `cv.pdf`).
+**4. CV.** Save it as `assets/cv/cv.pdf`, then uncomment the CV links in each page's sidebar and in `contact.html` (search for `cv.pdf`).
 
 **Blog on the home page.** The Blog section on the home page hides itself until there is at least one published post.
 
 **Publications on the home page.** Set `"selected": true` on the papers to feature under "Selected papers" (if none are marked, the newest are shown). Optional `topics` (list) become filters on the Papers page alongside the type, and `abstract` is shown when a paper's + is opened.
 
-**Theme.** All colors, fonts and spacing are CSS variables at the top of `assets/css/style.css`. The dark palette is in the `prefers-color-scheme: dark` block (and repeated under `[data-theme="dark"]`). The ◐ button switches light/dark and remembers the choice in the visitor's browser. The accent blue is `--accent`. To change the font, edit `--font-sans`.
+**Theme.** All colors, fonts and spacing are CSS variables at the top of `assets/css/style.css`. The dark palette is in the `prefers-color-scheme: dark` block (and repeated under `[data-theme="dark"]`). The light/dark button in the sidebar switches the theme and remembers the choice in the visitor's browser. The accent blue is `--accent`. Fonts are `--font-serif`, `--font-sans` and `--font-mono`.
 
 ## Adding a blog post
 
@@ -102,7 +102,7 @@ By hand (three steps):
 
 Images: put them in `blog/content/images/` and reference them as `![alt text](images/file.png)`.
 
-Posts are rendered in the browser with [marked.js](https://marked.js.org) from jsDelivr, the only third-party resource on the site (the Geist font is self-hosted). Post HTML is not sanitized, which is fine because only you write posts; don't paste untrusted HTML into them.
+Posts are rendered in the browser with [marked.js](https://marked.js.org) from jsDelivr, the only third-party resource on the site (fonts are self-hosted). Post HTML is not sanitized, which is fine because only you write posts; don't paste untrusted HTML into them.
 
 ## Updating publications from Google Scholar
 
